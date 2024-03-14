@@ -1,0 +1,99 @@
+#commandPrompt {
+  color: #47d068;
+  position: relative;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-family: Inconsolata, monospace;
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+}
+#output {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+#output > * {
+  color: aliceblue;
+  overflow: hidden;
+  counter-increment: line;
+  white-space: nowrap;
+}
+#output ::before {
+  content: ">";
+  margin-right: 5px;
+  display: inline-block;
+  color: lime;
+}
+
+
+
+
+.window {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(37, 37, 37, 0.5);
+    overflow: hidden;
+  }
+  .window.window--maximized {
+    width: 50%;
+    flex-grow: 1;
+  }
+  .window.window--minimized {
+    height: 20px;
+    width: 180px;
+  }
+  .window.window--minimized .window-content {
+    display: none;
+  }
+  .window.window--destroyed {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .window-header {
+    background-color: #eee;
+    height: 20px;
+  }
+  .window-controls {
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .window-controls .control-item {
+    width: 25px;
+    height: 20px;
+    text-align: center;
+    color: #333;
+    transition: all ease-in 0.15s;
+    cursor: pointer;
+  }
+  .window-controls .control-item:hover {
+    background-color: #ccc;
+  }
+  .control-item.control-close {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+  .control-item.control-close:hover {
+    background-color: #ec6060;
+    color: #fff;
+  }
+  .control-item.control-maximize {
+    line-height: 19px;
+  }
+  .control-item.control-minimize {
+    line-height: 22px;
+  }
+  
+  .window-cursor p {
+    margin-top: 6px;
+    margin-left: 10px;
+    font-family: FreePixel;
+    color: #fff;
+    font-size: 1em;
+    overflow-wrap: break-word;
+  }
+  

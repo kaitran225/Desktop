@@ -1,0 +1,139 @@
+#background {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 2060px;
+  height: 1280px;
+  z-index: -1;
+}
+body {
+  scroll-behavior: unset;
+
+    background-color: #000;
+
+  overflow: hidden;
+}
+.main {
+  background-color: #000;
+  position: absolute;
+}
+.container {
+  width: 300px;
+  float: left;
+  margin-bottom: 10px;
+  background-color: #ffffff0a;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */
+#I {
+  height: 290px;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */
+#II {
+  height: 80px;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */
+#III {
+  height: 100px;
+  margin-top: 10px;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */
+#IV {
+  height: 420px;
+  align-self: center;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */
+#VI {
+  align-items: center;
+  overflow: hidden;
+  margin: 0;
+  float: left;
+  width: 620px;
+  height: 130px;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #16161686, #1a1a1ac0);
+  transition: ease-in-out 0.4s;
+  font-weight: 300;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */
+#XVII {
+  width: 440px;
+  height: 200px;
+  background-color: #ffffff0a;
+  margin-top: 10px;
+  overflow: hidden;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */
+#XVIII {
+  width: 440px;
+  height: 200px;
+  background-color: #ffffff0a;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.15) 1px,
+      transparent 0
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 0),
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 0);
+  background-size: 120px 120px, 120px 120px, 30px 30px, 30px 30px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */
+#XIX {
+  width: 900px;
+  height: 190px;
+  margin-bottom: 20px;
+  background-color: transparent;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */
+#XX {
+  width: 900px;
+  height: 380px;
+  margin-bottom: 20px;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */
+#XIX,
+#XIX .pattern:before {
+  height: 190px;
+  width: 900px;
+  --s: 36px; /* control the size */
+  --g: 12px; /* control the gap */
+  --c: #292626b2;
+  --a: #000000; /* first color */
+
+  --_l: #000000 calc(33% - 0.866 * var(--g)),
+    var(--c) calc(33.2% - 0.866 * var(--g)) 33.33%, #0000 34%;
+  background: repeating-linear-gradient(var(--a) 0 var(--g), #0000 0 50%) 0
+      calc(0.866 * var(--s) - var(--g) / 2),
+    conic-gradient(from -150deg at var(--g) 50%, var(--c) 120deg, #0000 0),
+    linear-gradient(-120deg, var(--_l)), linear-gradient(-60deg, var(--_l)) #000; /* second color */
+  background-size: var(--s) calc(3.47 * var(--s));
+  animation: p infinite 1s alternate linear;
+  animation-direction: normal;
+}
+#XIX .pattern::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  mask: "null";
+  -webkit-mask: linear-gradient(#000 50%, #0000 0) 0 calc(0.866 * var(--s)) /
+    100% calc(3.466 * var(--s));
+  animation-direction: reverse;
+}
+/* ////////////////////////////////////////////// */
+/* ////////////////////////////////////////////// */

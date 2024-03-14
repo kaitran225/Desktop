@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>KaiTran's Desktop</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+  <script src="./js/init.js"></script>
+  <script async defer src="./js/pinit.js"></script> 
+  <!-- This function types -->
+  <script>
+    $(document).ready(function () {
+      const m = document.querySelector("#m");
+      const k = document.querySelector("#k");
+      const s = document.querySelector("#s");
+
+      const kd = document.querySelectorAll(".key");
+      let con = 0;
+
+      let base = (e) => {
+        let x = e.pageX / window.innerWidth - 0.5;
+        let y = e.pageY / window.innerHeight - 0.5;
+        k.style.transform = `
+        rotateX(${y * 10 + 60}deg)
+        rotateZ(-${x * 40 + 15}deg)
+        scale3D(0.75, 0.7, 0.65)
+    `;
+      };
+
+      let addKey = (e) => {
+        let kc = event.keyCode;
+
+        if ((kc >= 65 && kc <= 90) || kc == 32) {
+          if (kc == 81) {
+            kd[15].classList.add("key--down");
+          } else if (kc == 87) {
+            kd[16].classList.add("key--down");
+          } else if (kc == 69) {
+            kd[17].classList.add("key--down");
+          } else if (kc == 82) {
+            kd[18].classList.add("key--down");
+          } else if (kc == 84) {
+            kd[19].classList.add("key--down");
+          } else if (kc == 89) {
+            kd[20].classList.add("key--down");
+          } else if (kc == 85) {
+            kd[21].classList.add("key--down");
+          } else if (kc == 73) {
+            kd[22].classList.add("key--down");
+          } else if (kc == 79) {
+            kd[23].classList.add("key--down");
+          } else if (kc == 80) {
+            kd[24].classList.add("key--down");
+          } else if (kc == 65) {
+            kd[29].classList.add("key--down");
+          } else if (kc == 83) {
+            kd[30].classList.add("key--down");
+          } else if (kc == 68) {
+            kd[31].classList.add("key--down");
+          } else if (kc == 70) {
+            kd[32].classList.add("key--down");
+          } else if (kc == 71) {
+            kd[33].classList.add("key--down");
+          } else if (kc == 72) {
+            kd[34].classList.add("key--down");
+          } else if (kc == 74) {
+            kd[35].classList.add("key--down");
+          } else if (kc == 75) {
+            kd[36].classList.add("key--down");
+          } else if (kc == 76) {
+            kd[37].classList.add("key--down");
+          } else if (kc == 192) {
+            kd[38].classList.add("key--down");
+          } else if (kc == 90) {
+            kd[41].classList.add("key--down");
+          } else if (kc == 88) {
+            kd[42].classList.add("key--down");
+          } else if (kc == 67) {
+            kd[43].classList.add("key--down");
+          } else if (kc == 86) {
+            kd[44].classList.add("key--down");
+          } else if (kc == 66) {
+            kd[45].classList.add("key--down");
+          } else if (kc == 78) {
+            kd[46].classList.add("key--down");
+          } else if (kc == 77) {
+            kd[47].classList.add("key--down");
+          } else if (kc == 13) {
+            kd[39].classList.add("key--down");
+          } else if (kc == 32) {
+            kd[56].classList.add("key--down");
+            s.innerHTML += "&nbsp;";
+          }
+          s.innerHTML += String.fromCharCode(kc);
+          con++;
+          if (con > 10) {
+            s.innerHTML = "";
+            con = 0;
+          }
+        }
+        if (kc == 8) {
+          s.innerHTML = "";
+          kd[27].classList.add("key--down");
+          con = 0;
+        }
+      };
+      let removeKey = (e) => {
+        let kc = event.keyCode;
+        if (kc == 81) {
+          kd[15].classList.remove("key--down");
+        } else if (kc == 87) {
+          kd[16].classList.remove("key--down");
+        } else if (kc == 69) {
+          kd[17].classList.remove("key--down");
+        } else if (kc == 82) {
+          kd[18].classList.remove("key--down");
+        } else if (kc == 84) {
+          kd[19].classList.remove("key--down");
+        } else if (kc == 89) {
+          kd[20].classList.remove("key--down");
+        } else if (kc == 85) {
+          kd[21].classList.remove("key--down");
+        } else if (kc == 73) {
+          kd[22].classList.remove("key--down");
+        } else if (kc == 79) {
+          kd[23].classList.remove("key--down");
+        } else if (kc == 80) {
+          kd[24].classList.remove("key--down");
+        } else if (kc == 65) {
+          kd[29].classList.remove("key--down");
+        } else if (kc == 83) {
+          kd[30].classList.remove("key--down");
+        } else if (kc == 68) {
+          kd[31].classList.remove("key--down");
+        } else if (kc == 70) {
+          kd[32].classList.remove("key--down");
+        } else if (kc == 71) {
+          kd[33].classList.remove("key--down");
+        } else if (kc == 72) {
+          kd[34].classList.remove("key--down");
+        } else if (kc == 74) {
+          kd[35].classList.remove("key--down");
+        } else if (kc == 75) {
+          kd[36].classList.remove("key--down");
+        } else if (kc == 76) {
+          kd[37].classList.remove("key--down");
+        } else if (kc == 192) {
+          kd[38].classList.remove("key--down");
+        } else if (kc == 90) {
+          kd[41].classList.remove("key--down");
+        } else if (kc == 88) {
+          kd[42].classList.remove("key--down");
+        } else if (kc == 67) {
+          kd[43].classList.remove("key--down");
+        } else if (kc == 86) {
+          kd[44].classList.remove("key--down");
+        } else if (kc == 66) {
+          kd[45].classList.remove("key--down");
+        } else if (kc == 78) {
+          kd[46].classList.remove("key--down");
+        } else if (kc == 77) {
+          kd[47].classList.remove("key--down");
+        } else if (kc == 32) {
+          kd[56].classList.remove("key--down");
+        } else if (kc == 13) {
+          kd[39].classList.remove("key--down");
+        } else if (kc == 8) {
+          kd[27].classList.remove("key--down");
+        }
+      };
+
+      m.addEventListener("mousemove", base);
+      window.addEventListener("keydown", addKey);
+      window.addEventListener("keyup", removeKey);
+    });
+  </script>
+  <!-- This function techy -->
+  <script>
+    $(document).ready(function () {
+      class TextScramble {
+        constructor(el) {
+          this.el = el;
+          this.chars =
+            "qwertyuiopasdfghjklzxcvbnm!<>-_\\/[]{}—=+*^?#________";
+          this.update = this.update.bind(this);
+        }
+        setText(newText) {
+          const oldText = this.el.innerText;
+          const length = Math.max(oldText.length, newText.length);
+          const promise = new Promise((resolve) => (this.resolve = resolve));
+          this.queue = [];
+          for (let i = 0; i < length; i++) {
+            const from = oldText[i] || "";
+            const to = newText[i] || "";
+            const start = Math.floor(Math.random() * 40);
+            const end = start + Math.floor(Math.random() * 40);
+            this.queue.push({ from, to, start, end });
+          }
+          cancelAnimationFrame(this.frameRequest);
+          this.frame = 0;
+          this.update();
+          return promise;
+        }
+        update() {
+          let output = "";
+          let complete = 0;
+          for (let i = 0, n = this.queue.length; i < n; i++) {
+            let { from, to, start, end, char } = this.queue[i];
+            if (this.frame >= end) {
+              complete++;
+              output += to;
+            } else if (this.frame >= start) {
+              if (!char || Math.random() < 0.28) {
+                char = this.randomChar();
+                this.queue[i].char = char;
+              }
+              output += `<span class="dud">${char}</span>`;
+            } else {
+              output += from;
+            }
+          }
+          this.el.innerHTML = output;
+          if (complete === this.queue.length) {
+            this.resolve();
+          } else {
+            this.frameRequest = requestAnimationFrame(this.update);
+            this.frame++;
+          }
+        }
+        randomChar() {
+          return this.chars[Math.floor(Math.random() * this.chars.length)];
+        }
+      }
+
+      const phrases = [
+        "If you never try",
+        "you will never know",
+        "what you are capable of",
+        "HUSTLE!!!",
+        "HUSTLE!!!",
+        "HUSTLE!!!",
+        "Just keep working",
+        "not getting what you want?",
+        "KEEP WORKING",
+        "HARD WORK PAYS OFF",
+        "OVERTHINKING IS OVERRATED",
+        "KAI IS  KHUM"
+      ];
+
+      const el = document.querySelector(".text");
+      const fx = new TextScramble(el);
+
+      let counter = 0;
+      const next = () => {
+        fx.setText(phrases[counter]).then(() => {
+          setTimeout(next, 2000);
+        });
+        counter = (counter + 1) % phrases.length;
+      };
+
+      next();
+    });
+  </script>
+  <!-- This function runs code -->
+  <script>
+    $(document).ready(function () {
+      var prompt = {
+        window: $(".window"),
+        shortcut: $(".prompt-shortcut"),
+        input: $(".js-prompt-input"),
+        init: function () {
+          $(".js-close").click(prompt.close);
+        },
+        close: function () {
+          prompt.window.addClass("window--destroyed");
+          prompt.window.removeClass("window--maximized window--minimized");
+          prompt.shortcut.removeClass("hidden");
+          prompt.input.val("");
+        },
+
+      };
+      $(document).ready(prompt.init);
+    });
+  </script>
+  <!-- This function is a perlin noise -->
+  <script>
+    $(document).ready(function () {
+      var canvas;
+      var ctx;
+      var w;
+      var h;
+      var tick;
+      var mouseX;
+      var mouseY;
+      function setup() {
+        noise.seed(Math.random());
+        canvas = document.getElementById("background");
+        ctx = canvas.getContext("2d");
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        tick = 0;
+        mouseX = 0;
+        mouseY = 0;
+      }
+      function draw(now) {
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, w, h);
+        ctx.strokeStyle = "rgb(255, 255, 225, 0.1)";
+        requestAnimationFrame(draw);
+        waves();
+        tick = now / 36000;
+      }
+
+      function wave(y0) {
+        var mx = mouseX / 500;
+        var my = mouseY / 500;
+        var a = 20 + noise.perlin2(mx + 100 + tick, my + y0 / 100 + tick) * 10;
+        var p = 20 + noise.perlin2(1000 + tick, my + y0 / 100 + tick) * 5;
+        var phase = noise.perlin2(mx + 2000 + tick, my + y0 / 100 + tick) * 5;
+        ctx.beginPath();
+        for (var x = 0; x < w; x++) {
+          var y = Math.sin(x / w * p + phase) * a + y0;
+          ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+
+      function waves() {
+        for (var y0 = 0; y0 < h; y0 += 10) {
+          wave(y0);
+        }
+      }
+
+      setup();
+      draw(1);
+    });
+  </script>
+  <!-- This function unlocks something -->
+  <script>
+    jQuery(document).ready(function ($) {
+      $(document).ready(function () {
+        var pin = ([!+[] + !+[]] + []) + ([!+[] + !+[] + !+[] + !+[] + !+[]] + []) + ([!+[] + !+[] + !+[] + !+[] + !+[] + !+[] + !+[]] + []) + ([!+[] + !+[] + !+[]] + []);
+        var enterCode = "";
+        enterCode.toString();
+        let card = $("#y");
+        card.click(function () {
+          let x = document.getElementById("x");
+          let y = document.getElementById("y");
+          x.style.transform = "rotateX(0deg)";
+          y.style.transform = "rotateX(-180deg)";
+          $("#fields").addClass("miss");
+          enterCode = "";
+          setTimeout(function () {
+            $("#fields .numberfield").removeClass("active");
+          }, 200);
+          setTimeout(function () {
+            $("#fields").removeClass("miss");
+          }, 500);
+
+        })
+        $("#numbers button").click(function () {
+
+          var clickedNumber = $(this).text().toString();
+          enterCode = enterCode + clickedNumber;
+          var lengthCode = parseInt(enterCode.length);
+          lengthCode--;
+          $("#fields .numberfield:eq(" + lengthCode + ")").addClass("active");
+
+          if (lengthCode == 3) {
+
+            // Check the PIN
+            if (enterCode == pin) {
+              // Right PIN!
+              let x = document.getElementById("x");
+              let y = document.getElementById("y");
+              x.style.transform = "rotateX(-180deg)";
+              y.style.transform = "rotateX(0deg)";
+
+            } else {
+              // Wrong PIN!
+              $("#fields").addClass("miss");
+              enterCode = "";
+              setTimeout(function () {
+                $("#fields .numberfield").removeClass("active");
+              }, 200);
+              setTimeout(function () {
+                $("#fields").removeClass("miss");
+              }, 500);
+
+            }
+
+          } else { }
+
+        });
+      });
+    });
+  </script>
+  <!-- This function tells quote -->
+  <script>
+    $(document).ready(function () {
+      var randomQuote = "";
+      var randomAuthor = "";
+
+      function getQuote() {
+        $.ajax({
+          url: "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?",
+          method: "GET",
+          dataType: "jsonp",
+          success: function (request) {
+            randomQuote = request.quoteText;
+            randomAuthor = request.quoteAuthor;
+            $('#quote').html(randomQuote);
+            if (randomAuthor === "") {
+              randomAuthor = "Unknown";
+            } $('#author').html(randomAuthor);
+          },
+          error: function (xhr, status, error) {
+            $('#quoteText').text('Not sure what happened there! Click again to generate a new quote!');
+            $('#quoteAuthor').text('Click Below!');
+          }
+        });
+      }
+
+
+      $(document).ready(function () {
+        $(".VI").click(function () {
+          getQuote();
+        });
+      });
+    })
+  </script>
+  <!-- This function tells date -->
+  <script>
+    $(document).ready(function () {
+      var Cal = function (divId) {
+
+        //Store div id
+        this.divId = divId;
+
+        // Days of week, starting on Sunday
+        this.DaysOfWeek = [
+          'Sun',
+          'Mon',
+          'Tue',
+          'Wed',
+          'Thu',
+          'Fri',
+          'Sat'
+        ];
+
+        // Months, stating on January
+        this.Months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        // Set the current month, year
+        var d = new Date();
+
+        this.currMonth = d.getMonth();
+        this.currYear = d.getFullYear();
+        this.currDay = d.getDate();
+
+      };
+
+      // Goes to next month
+      Cal.prototype.nextMonth = function () {
+        if (this.currMonth == 11) {
+          this.currMonth = 0;
+          this.currYear = this.currYear + 1;
+        }
+        else {
+          this.currMonth = this.currMonth + 1;
+        }
+        this.showcurr();
+      };
+
+      // Goes to previous month
+      Cal.prototype.previousMonth = function () {
+        if (this.currMonth == 0) {
+          this.currMonth = 11;
+          this.currYear = this.currYear - 1;
+        }
+        else {
+          this.currMonth = this.currMonth - 1;
+        }
+        this.showcurr();
+      };
+
+      // Show current month
+      Cal.prototype.showcurr = function () {
+        this.showMonth(this.currYear, this.currMonth);
+      };
+
+      // Show month (year, month)
+      Cal.prototype.showMonth = function (y, m) {
+
+        var d = new Date()
+          // First day of the week in the selected month
+          , firstDayOfMonth = new Date(y, m, 1).getDay()
+          // Last day of the selected month
+          , lastDateOfMonth = new Date(y, m + 1, 0).getDate()
+          // Last day of the previous month
+          , lastDayOfLastMonth = m == 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
+
+
+        var html = '<table>';
+        // Write the header of the days of the week
+        html += '<tr class="days">';
+        for (var i = 0; i < this.DaysOfWeek.length; i++) {
+          html += '<td>' + this.DaysOfWeek[i] + '</td>';
+        }
+        html += '</tr>';
+
+        // Write the days
+        var i = 1;
+        do {
+
+          var dow = new Date(y, m, i).getDay();
+
+          // If Sunday, start new row
+          if (dow == 0) {
+            html += '<tr>';
+          }
+          // If not Sunday but first day of the month
+          // it will write the last days from the previous month
+          else if (i == 1) {
+            html += '<tr>';
+            var k = lastDayOfLastMonth - firstDayOfMonth + 1;
+            for (var j = 0; j < firstDayOfMonth; j++) {
+              html += '<td class="not-current">' + k + '</td>';
+              k++;
+            }
+          }
+
+          // Write the current day in the loop
+          var chk = new Date();
+          var chkY = chk.getFullYear();
+          var chkM = chk.getMonth();
+          if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
+            html += '<td class="today">' + i + '</td>';
+          } else {
+            html += '<td class="normal">' + i + '</td>';
+          }
+          // If Saturday, closes the row
+          if (dow == 6) {
+            html += '</tr>';
+          }
+          // If not Saturday, but last day of the selected month
+          // it will write the next few days from the next month
+          else if (i == lastDateOfMonth) {
+            var k = 1;
+            for (dow; dow < 6; dow++) {
+              html += '<td class="not-current">' + k + '</td>';
+              k++;
+            }
+          }
+
+          i++;
+        } while (i <= lastDateOfMonth);
+
+        // Closes table
+        html += '</table>';
+
+        // Write HTML to the div
+        document.getElementById(this.divId).innerHTML = html;
+      };
+
+      // On Load of the window
+      window.onload = function () {
+
+        // Start calendar
+        var c = new Cal("divCal");
+        c.showcurr();
+      };
+    })
+  </script>
+  <!-- THIS THIS IS SUS -->
+  <script>
+    $(document).ready(function () {
+      let calendarCard = $("#XV");
+      var i = 0;
+      let a = document.getElementById("a");
+      let b = document.getElementById("b");
+      calendarCard.click(function () {
+        i++;
+        if (i == 3) {
+          a.style.transform = "rotateX(-180deg)";
+          b.style.transform = "rotateX(0deg)";
+        }
+      })
+      let card = $("#b");
+      card.click(function () {
+        a.style.transform = "rotateX(0deg)";
+        b.style.transform = "rotateX(-180deg)";
+        reset();
+      })
+      reset = function () {
+        i = 0;
+      }
+      setInterval(reset, 10000)
+    })
+  </script>
+  <!-- This fun play music -->
+  <script>
+    $(document).ready(function () {
+      window.onSpotifyIframeApiReady = (IFrameAPI) => {
+        const element = document.getElementById('embed-iframe');
+        const options = {
+          uri: 'spotify:playlist:37i9dQZF1DX4g8Gs5nUhpp'
+        };
+        const callback = (EmbedController) => { };
+        IFrameAPI.createController(element, options, callback);
+      };
+    })
+  </script>
+  <script>
+
+  </script>
+</head>
+
+<body>
+  <div class="main">
+    <div class="columnI">
+      <div class="columnIA">
+        <div id="I" , class="container">
+          <div class="vcard">
+            <div class="card-back" id="b">
+            </div>
+            <div class="card-front" id="a">
+              <section class="ss-icon">
+                <a href="#">
+                  <article><span>facebook</span></article>
+                </a>
+                <a href="#">
+                  <article><span>twitter</span></article>
+                </a>
+                <a href="#">
+                  <article><span>tumblr</span></article>
+                </a>
+                <a href="#">
+                  <article><span>pinterest</span></article>
+                </a>
+                <a href="#">
+                  <article><span>behance</span></article>
+                </a>
+                <a href="#">
+                  <article><span>github</span></article>
+                </a>
+                <a href="#">
+                  <article><span>linkedin</span></article>
+                </a>
+                <a href="#">
+                  <article><span>dribbble</span></article>
+                </a>
+                <a href="#">
+                  <article><span>instagram</span></article>
+                </a>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div id="IV" , class="container">
+          <div class="vcard">
+            <div class="card-back" id="y">
+            </div>
+            <div class="card-front" id="x">
+              <div id="app">
+                <div class="ticket">
+                  <div class="front">
+                    <div class="holo"></div>
+                    <img class="logo" src="https://assets.codepen.io/13471/threads.svg">
+                    <aside class="divider"></aside>
+                  </div>
+                  <div class="back">
+                    <div class="holo"></div>
+                    <img class="logo" src="https://assets.codepen.io/13471/threads.svg">
+                    <div class="data">
+                      <h3>Date</h3>
+                      <p id="date" contenteditable spellcheck="false">Thu Jul 6</p>
+                      <h3>Time</h3>
+                      <p id="time" contenteditable spellcheck="false"><time>12:00</time></p>
+                      <h3>Username</h3>
+                      <p contenteditable spellcheck="false">KaiTranCDR</p>
+                      <a class="qr" href="https://codepen.io/simeydotme" target="_blank">
+                        <img src="https://assets.codepen.io/13471/simeyqr.svg"
+                          alt="A code to use for accessing the simeydotme codepen profile">
+                      </a>
+                    </div>
+
+                    <aside class="divider">
+                      <div class="username">
+                        <img class="profile" src="images\Kai.jpg">
+                        <span contenteditable spellcheck="false"> kaitran.prt</span> <img class="verified"
+                          src="https://assets.codepen.io/13471/verified.png">
+                      </div>
+                      <span class="usernum" contenteditable spellcheck="false">225508793</span>
+                    </aside>
+                  </div>
+
+                </div>
+              </div>
+              <!-- <div id="pincode">
+                <div class="table">
+                  <div class="cell">
+                    <div id="fields">
+                      <div class="grid">
+                        <div class="grid__col grid__col--1-of-4 numberfield"><span></span></div>
+                        <div class="grid__col grid__col--1-of-4 numberfield"><span></span></div>
+                        <div class="grid__col grid__col--1-of-4 numberfield"><span></span></div>
+                        <div class="grid__col grid__col--1-of-4 numberfield"><span></span></div>
+                      </div>
+                    </div>
+
+                    <div id="numbers">
+                      <div class="grid">
+                        <div class="grid__col grid__col--1-of-3"><button>1</button></div>
+                        <div class="grid__col grid__col--1-of-3"><button>2</button></div>
+                        <div class="grid__col grid__col--1-of-3"><button>3</button></div>
+
+                        <div class="grid__col grid__col--1-of-3"><button>4</button></div>
+                        <div class="grid__col grid__col--1-of-3"><button>5</button></div>
+                        <div class="grid__col grid__col--1-of-3"><button>6</button></div>
+
+                        <div class="grid__col grid__col--1-of-3"><button>7</button></div>
+                        <div class="grid__col grid__col--1-of-3"><button>8</button></div>
+                        <div class="grid__col grid__col--1-of-3"><button>9</button></div>
+
+                        <div class="grid__col grid__col--1-of-3"><button>#</button></div>
+                        <div class="grid__col grid__col--1-of-3"><button>0</button></div>
+                        <div class="grid__col grid__col--1-of-3"><button>*</button></div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div id="footer">
+          <div id="X" , class="container">
+            <div class="qcard">
+              <div class="card-back"></div>
+              <div class="card-front">
+                <div class="window">
+                  <header class="window-header">
+                    <nav class="window-controls">
+                      <span class="control-item control-minimize js-minimize">
+                        ‒
+                      </span>
+                      <span class="control-item control-maximize js-maximize">
+                        □
+                      </span>
+                      <span class="control-item control-close js-close">
+                        ˟
+                      </span>
+                    </nav>
+                  </header>
+                  <div id="commandPrompt" class="">
+                    <div id="output">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="XXX", class="container">
+          </div>
+        </div>
+      </div>
+      <div class="columnIB">
+        <div class="columnIBI">
+          <div id="VII" , class="container">
+            <div class="vcard">
+              <div class="card-back" id="">
+              </div>
+              <div class="card-front" id="">
+                <div class="VII--border">
+                  <a data-pin-do="embedBoard" data-pin-lang="en" data-pin-board-width="292" data-pin-scale-height="380"
+                    data-pin-scale-width="110" href="https://www.pinterest.com/kaitran2205/game-design/"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="IX" , class="container">
+            <div class="card">
+              <div class="card-back">
+              </div>
+              <div class="card-front">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="columnIBII">
+          <div id="XI" , class="container">
+            <div class="vcard">
+              <div class="card-back" id="">
+              </div>
+              <div class="card-front" id="">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                  <script type="text/javascript" src="./js/tv.js"></script>
+                  <script type="text/javascript">
+                    new TradingView.widget({
+                      width: 300,
+                      height: 185,
+                      symbol: "BINANCE:ETHUSDT",
+                      interval: "1",
+                      timezone: "Asia/Ho_Chi_Minh",
+                      theme: "dark",
+                      style: "2",
+                      locale: "en",
+                      enable_publishing: false,
+                      range: "1D",
+                      hide_top_toolbar: true,
+                      hide_legend: true,
+                      container_id: "tradingview_ca504",
+                      save_image: false,
+                      studies: [],
+                    });
+                  </script>
+                </div>
+                <!-- TradingView Widget END -->
+              </div>
+            </div>
+
+          </div>
+          <div id="XII" , class="container">
+            <div class="vcard">
+              <div class="card-back" id="">
+              </div>
+              <div class="card-front" id="">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                  <script type="text/javascript" src="./js/tv.js"></script>
+                  <script type="text/javascript">
+                    new TradingView.widget({
+                      width: 300,
+                      height: 185,
+                      symbol: "BINANCE:SOLUSDT",
+                      interval: "1",
+                      timezone: "Asia/Ho_Chi_Minh",
+                      theme: "dark",
+                      style: "2",
+                      locale: "en",
+                      enable_publishing: false,
+                      range: "1D",
+                      hide_top_toolbar: true,
+                      hide_legend: true,
+                      container_id: "tradingview_ca504",
+                      save_image: false,
+                      studies: [],
+                    });
+                  </script>
+                </div>
+                <!-- TradingView Widget END -->
+              </div>
+            </div>
+          </div>
+          <div id="XIII" , class="container">
+            <div class="card">
+              <div class="card-back">
+              </div>
+              <div class="card-front">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="columnIII">
+      <div id="XX" , class="container">
+        <div class="qcard">
+          <div class="card-back">
+            <article>
+              <table class="all" align="center">
+                <thead>
+                  <tr>
+                    <th class="days t">Time</th>
+                    <th class="days">Monday</th>
+                    <th class="days">Tuesday</th>
+                    <th class="days">Wednesday</th>
+                    <th class="days">Thursday</th>
+                    <th class="days">Friday</th>
+                    <th class="days s">Saturday</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="time">Pre-day</th>
+                    <td>Exercise</td>
+                    <!-- Monday-->
+                    <td>Exercise</td>
+                    <!-- Tuesday-->
+                    <td>Exercise</td>
+                    <!-- Wednesday-->
+                    <td>Exercise</td>
+                    <!-- Thursday-->
+                    <td>Exercise</td>
+                    <!-- Friday-->
+                    <td class="lastrows">Exercise</td>
+                    <!-- Saturday-->
+                  </tr>
+                  <tr>
+                    <th class="time">9 - 11</th>
+                    <td>JPD</td>
+                    <!-- Monday-->
+                    <td>JPD</td>
+                    <!-- Tuesday-->
+                    <td>JPD</td>
+                    <!-- Wednesday-->
+                    <td>JPD</td>
+                    <!-- Thursday-->
+                    <td>JPD</td>
+                    <!-- Friday-->
+                    <td class="lastrows">JPD</td>
+                    <!-- Saturday-->
+                  </tr>
+                  <tr>
+                    <th class="time">12 - 14</th>
+                    <td>ENG</td>
+                    <!-- Monday-->
+                    <td>ENG</td>
+                    <!-- Tuesday-->
+                    <td>MAD</td>
+                    <!-- Wednesday-->
+                    <td>MAD</td>
+                    <!-- Thursday-->
+                    <td>ENG</td>
+                    <!-- Friday-->
+                    <td class="lastrows">ENG</td>
+                    <!-- Saturday-->
+                  </tr>
+                  <tr>
+                    <th class="time">15 - 16</th>
+                    <td>Self-Care</td>
+                    <!-- Monday-->
+                    <td>Self-Care</td>
+                    <!-- Tuesday-->
+                    <td>Self-Care</td>
+                    <!-- Wednesday-->
+                    <td>Self-Care</td>
+                    <!-- Thursday-->
+                    <td>Self-Care</td>
+                    <!-- Friday-->
+                    <td class="lastrows">Self-Care</td>
+                    <!-- Saturday-->
+                  </tr>
+                  <tr>
+                    <th class="time">18 - 22</th>
+                    <td>Web</td>
+                    <!-- Monday-->
+                    <td>Game</td>
+                    <!-- Tuesday-->
+                    <td>Game</td>
+                    <!-- Wednesday-->
+                    <td>App</td>
+                    <!-- Thursday-->
+                    <td>App</td>
+                    <!-- Friday-->
+                    <td class="lastrows">Game</td>
+                    <!-- Saturday-->
+                  </tr>
+                  <tr class="last">
+                    <th class="time lr">22 - 23</th>
+                    <td class="lr">LeetCode</td>
+                    <!-- Monday-->
+                    <td class="lr">LeetCode</td>
+                    <!-- Tuesday-->
+                    <td class="lr">LeetCode</td>
+                    <!-- Wednesday-->
+                    <td class="lr">LeetCode</td>
+                    <!-- Thursday-->
+                    <td class="lr">LeetCode</td>
+                    <!-- Friday-->
+                    <td class="lastrows lr">LeetCode</td>
+                    <!-- Saturday-->
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+          </div>
+          <div class="card-front" id="KaiCard">
+          </div>
+        </div>
+      </div>
+      <div id="XIX" , class="container">
+        <div class="vcard">
+          <div class="card-back" id="">
+          </div>
+          <div class="card-front" id="">
+            <div class="pattern"></div>
+            <button class="BGTEXT2"></button>
+            <button class="BGTEXT"></button>
+            <button class="text"></button>
+          </div>
+        </div>
+
+      </div>
+      <div class="columnIV">
+        <div class="columnIC">
+          <div id="XVIII" , class="container">
+            <div class="vcard">
+              <div class="card-back" id="">
+              </div>
+              <div class="card-front" id="">
+              </div>
+            </div>
+
+          </div>
+          <div id="XVII" , class="container">
+            <div class="vcard">
+              <div class="card-back" id="">
+              </div>
+              <div class="card-front" id="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="XVI" , class="container">
+          <div class="qcard" :class="nonActive">
+            <div class="card-back">
+            </div>
+            <div class="card-front">
+              <iframe width="100%" height="500"
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4g8Gs5nUhpp?utm_source=oembed&theme=0"
+                style="top: 0; left: 0; width: 100%; position: absolute; border: 0;"
+                allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture;"></iframe>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <canvas id="background"></canvas> -->
+</body>
+
+</html>

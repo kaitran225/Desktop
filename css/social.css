@@ -1,0 +1,126 @@
+.ss-icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 35px;
+  text-align: center;
+}
+.ss-icon a {
+  position: relative;
+  float: left;
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+}
+.ss-icon a article {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  box-shadow: 0 0 6px -2px #000, 0 0 45px -20px #000;
+  color: #fff;
+  line-height: 90px;
+  transform: perspective(300px) rotateY(0deg);
+  transition: transform 0.4s linear, background-color 0s linear 0.2s,
+    color 0s linear 0.2s;
+}
+.ss-icon a:hover article {
+  transform: perspective(300px) rotateY(180deg);
+  color: #eee;
+  transition: transform 0.2s linear, background-color 0s linear 0.1s,
+    color 0s linear 0.1s;
+}
+.ss-icon a:nth-child(1):hover article {
+  background-color: #3b5998;
+}
+.ss-icon a:nth-child(2):hover article {
+  background-color: #00aced;
+}
+.ss-icon a:nth-child(3):hover article {
+  background-color: #2c4762;
+}
+.ss-icon a:nth-child(4):hover article {
+  background-color: #cb2027;
+}
+.ss-icon a:nth-child(5):hover article {
+  background-color: #1769ff;
+}
+.ss-icon a:nth-child(6):hover article {
+  background-color: #4183c4;
+}
+.ss-icon a:nth-child(7):hover article {
+  background-color: #39c;
+}
+.ss-icon a:nth-child(8):hover article {
+  background-color: #ea4c89;
+}
+.ss-icon a:nth-child(9):hover article {
+  background-color: #3f729b;
+}
+
+.ss-icon a article span {
+  transition: transform 0s linear 0.2s, text-shadow 0s linear 0.2s;
+  display: block;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+.ss-icon a:hover span {
+  transition: transform 0s linear 0.1s, text-shadow 0s linear 0.1s;
+  transform: scale(-1, 1);
+  text-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+}
+@font-face {
+  font-family: "SSSocial";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.eot");
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.woff")
+      format("woff"),
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.ttf")
+      format("truetype"),
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.svg#SSSocialRegular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* This triggers a redraw in IE to Fix IE8's :before content rendering. */
+html:hover [class^="ss-"] {
+  zoom: 1;
+}
+.ss-icon,
+.ss-icon.ss-social,
+.ss-icon.ss-social-circle,
+[class^="ss-"]:before,
+[class*=" ss-"]:before,
+[class^="ss-"][class*=" ss-social"]:before,
+[class*=" ss-"][class*=" ss-social"]:before,
+[class^="ss-"].right:after,
+[class*=" ss-"].right:after,
+[class^="ss-"][class*=" ss-social"].right:after,
+[class*=" ss-"][class*=" ss-social"].right:after {
+  font-family: "SSSocial";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  -o-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+.ss-icon.ss-social-circle,
+[class^="ss-"].ss-social-circle:before,
+[class*=" ss-"].ss-social-circle:before,
+[class^="ss-"].ss-social-circle.right:after,
+[class*=" ss-"].ss-social-circle.right:after {
+  font-weight: bold;
+}
+[class^="ss-"].right:before,
+[class*=" ss-"].right:before {
+  display: none;
+  content: "";
+}
